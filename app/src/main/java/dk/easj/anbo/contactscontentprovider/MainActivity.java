@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
@@ -19,6 +20,13 @@ public class MainActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
+
+        ListView listView = getListView();
+        TextView header = new TextView(this);
+        // http://stackoverflow.com/questions/9494037/how-to-set-text-size-of-textview-dynamically-for-different-screens
+        header.setTextSize(header.getTextSize() * 1.1f);
+        header.setText("Contacts");
+        listView.addHeaderView(header);
     }
 
     @Override
